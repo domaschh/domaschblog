@@ -21,37 +21,29 @@ const {
 <html>
 	<head>
 		<BaseHead title={title} description={description} />
-		<style>
-			.title {
-				font-size: 2em;
-				margin: 0.25em 0 0;
-			}
-			hr {
-  				border-top: 1px solid #DDD;
-				margin: 1rem 0;
-			}
-		</style>
 	</head>
-
-	<body>
-		<Header />
-		<main>
+	<body class="flex flex-col w-full selection:bg-yellow-600">
+		<div class="w-[300px] flex justify-center m-auto mt-12">
+			<Header></Header>
+		</div>
+		<main class="flex sm:flex-row m-auto sm:w-[700px] sm:mt-12 mt-0 flex-col-reverse h-full justify-self-center">
 			<article>
-				{heroImage && (
-					<img
-						width={720}
-						height={360}
-						src={heroImage}
-						alt=""
-					/>
-				)}
-				<h1 class="title">{title}</h1>
+				{
+					heroImage && (
+						<img width={720} height={360} src={heroImage} alt="" />
+					)
+				}
 				{pubDate && <time>{pubDate}</time>}
-				{updatedDate && <div>Last updated on <time>{updatedDate}</time></div>}
-				<hr/>
+				{
+					updatedDate && (
+						<div>
+							Last updated on <time>{updatedDate}</time>
+						</div>
+					)
+				}
+				<hr />
 				<slot />
 			</article>
 		</main>
-		<Footer />
 	</body>
 </html>

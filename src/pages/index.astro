@@ -6,16 +6,19 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import Card from '../components/Card.astro';
 import { Image } from '@astrojs/image/components';
 
-const about_myself_title: string = "Hi I'm Thomas and I've been a professional Software Engineer for over 3 years now <a href=\"https://twitter.com/thedomasch\">@thedomasch</a>. Till now I've mostly used .NET Core and Angular for the project I built <a href=\"https://www.firestart.com/\">(You can take a look at the companies website here)</a>but since about a year I've grown closer and closer to Rust and enjoyed building with it quite a lot"
+const about_myself_title: string = "Hi, I'm Thomas, an occasional writer, and previous engineer at FireStart, where we developed a new cloud-first business process management suite. I also study Computer Science at TU Vienna and spend much of my free time learning about computers and the internet. I have experience in .NET Core, Angular, and Rust, the last of which I am most passionate about."
 const about_myself_content: string = "A little bit about myself"
 
-const title_2: string = "Tilt 2 fill in"
-const title_3: string = "Tilt 3 fill in"
+const title_2: string = "Why am I doing this?"
+const title_3: string = "What else is there than tech?"
 
-const content_2: string = "Content 2 fill in"
-const content_3: string = "Content 3 fill in"
+const content_2: string = "As I got more and more into the tech world and a thing I've greatly enjoyed since then is reading up about people's learnings and their journey in this space. So I thought, \"Hey, why not share my journey?\". If you ever find my posts interesting or helpful, feel free to contact me via Twitter, Email, or whatever and leave your feedback there! Always appreciate a second opinion."
+const content_3: string = "Well, at the moment, I'm traveling in southeast Asia, currently staying in Kho Phi Phi. I try myself at photography, and all the pictures you see on this site are taken by me. And while I'm at it, how could I miss taking martial art classes while being in Thailand? "
+const title_4: string = "Features I have in mind"
+const content_4: string = "First and foremost, I'd like to add a light mode for users who don't like this website's black and white vibe. Other than that, translations for my german speaking peers are definitely in planning. The german speaking dev community is underrepresented!"
 
 const image_src: string = "/images/mainimage.jpeg"
+const image_src2: string = "/images/me.png"
 ---
 
 <!DOCTYPE html>
@@ -24,18 +27,26 @@ const image_src: string = "/images/mainimage.jpeg"
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
 	</head>
-	<body class="flex flex-col justify-between h-screen w-full">
-		<Header></Header>
-		<main class="flex flex-row w-full h-full px-24">
-			<div class="flex flex-col divide-y divide-solid divide-blue-100 pr-12">
+	<body class="flex flex-col w-full selection:bg-yellow-600">
+		<div class="w-[300px] flex justify-center m-auto mt-12">
+			<Header></Header>
+		</div>
+		<main class="flex sm:flex-row m-auto sm:mt-12 mt-0 flex-col-reverse h-full justify-self-center">
+			<div class="flex sm:w-[500px] w-full mr-24 flex-col divide-y divide-solid divide-white-100">
+				<br>
 				<Card title={about_myself_content} content={about_myself_title}></Card>
-				<Card title={title_2} content={about_myself_title}></Card>
-				<Card title={title_3} content={about_myself_title}></Card>
+				<br>
+				<Card title={title_2} content={content_2}></Card>
+				<br>
+				<Card title={title_3} content={content_3}></Card>
+				<br>
+				<Card title={title_4} content={content_4}></Card>
+
+				
 			</div>
 			<div class="flex drop-shadow-2xl">
-				<img src={image_src} class="w-full h-auto aspect-[3/2] blur-sm"/>
+				<img src={image_src} class="w-full h-auto"/>
 			</div>
 		</main>
-		<Footer />
 	</body>
 </html>
