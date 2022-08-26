@@ -28,6 +28,12 @@ b {
 	color: rgb(255, 255, 255);
 	font-family: Helvetica, sans-serif;
 }
+div {
+	font-family: 'Cardo', Courier, monospace;
+}
+li {
+	font-family: 'Cardo', Courier, monospace;
+}
 a {
 	color: #ffffff;
 }

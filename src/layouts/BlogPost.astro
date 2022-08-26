@@ -26,11 +26,11 @@ const {
 		<div class="w-[300px] flex justify-center m-auto mt-12">
 			<Header></Header>
 		</div>
-		<main class="flex sm:flex-row m-auto sm:w-[700px] sm:mt-12 mt-0 flex-col-reverse h-full justify-self-center">
+		<main class="flex sm:flex-row m-auto sm:w-[700px] sm:mt-12 mt-0 flex-col-reverse h-full justify-self-center font-sans">
 			<article>
 				{
 					heroImage && (
-						<img width={720} height={360} src={heroImage} alt="" />
+						<img width={720} height={360} src={heroImage} alt="myself" />
 					)
 				}
 				{pubDate && <time>{pubDate}</time>}

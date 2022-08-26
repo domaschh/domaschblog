@@ -1,7 +1,66 @@
 ---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+
+enum Pos {
+    LEFT,
+    RIGHT
+};
+
+interface ImageComponent {
+    url: string,
+    position: Pos,
+    text: string
+}
+const items: ImageComponent[] = [
+    {url: "/images/imgpage/img1.png", position: Pos.RIGHT ,text: "Prague, Miminka" },
+    {url: "/images/imgpage/img5.png", position: Pos.LEFT ,text: "Budapest,Kossuth Emlékmű" },
+    {url: "/images/imgpage/img2.png", position: Pos.RIGHT ,text: "Prague, inner city" },
+    {url: "/images/imgpage/img4.png", position: Pos.LEFT ,text: "Budapest," },
+    {url: "/images/imgpage/img3.png", position: Pos.RIGHT ,text: "Vienna, 1070" },
+    {url: "/images/imgpage/img6.png", position: Pos.LEFT ,text: "Amsterdam, rAAVE " },
+    {url: "/images/imgpage/img7.png", position: Pos.RIGHT ,text: "Vienna, MQ" },];
 
 ---
 
-<div>
-    hallo
-</div>
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
+	</head>
+	<body class="flex flex-col w-full selection:bg-yellow-600">
+		<div class="w-[300px] flex justify-center m-auto mt-12">
+			<Header></Header>
+		</div>
+		<main class="flex sm:flex-row m-auto sm:mt-12 mt-0 flex-col-reverse h-full justify-self-center">
+			<div class="flex flex-col sm:w-[1063px] w-full">
+                    {items.map((item) => (
+                            (item.position === Pos.RIGHT) ? 
+                            <div class="flex items-center self-left">
+                            <img src={item.url} width={500} />
+                                <div class="h-full flex flex-col">
+                                   <div class="border-solid border border-white h-full w-0 self-center"></div>
+                                    <div class="p-5" style="writing-mode: vertical-lr;min-inline-size:fit-content;" >{item.text}</div>
+                                    <div class="border-solid border border-white h-full w-0 self-center"></div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                                :
+                            <div class="flex items-center self-end">
+                                <div class="w-[60px] h-full flex flex-col">
+                                    <div class="border-solid border border-white h-full w-0 self-center"></div>
+                                    <div class="p-5 rotate-180" style="writing-mode: vertical-lr;min-inline-size:fit-content;">{item.text}</div>
+                                    <div class="border-solid border border-white h-full w-0 self-center"></div>
+                                </div> 
+                                <img src={item.url} width={500}/>
+                            </div> 
+                            <br>
+                            <br>
+                        ))}
+            </div>
+		</main>
+	</body>
+</html>
