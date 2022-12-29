@@ -18,7 +18,7 @@ const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 
-	<body class="flex flex-col w-full selection:bg-yellow-600">
+	<body class="flex flex-col w-full selection:bg-yellow-600 p-12">
 		<div class="w-[300px] flex justify-center m-auto mt-12">
 			<Header />
 		</div>

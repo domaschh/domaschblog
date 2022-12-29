@@ -24,13 +24,18 @@ const items: ImageComponent[] = [
 
 ---
 
+<style>
+
+
+</style>
 <!DOCTYPE html>
 <html lang="en-us">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/global.css" />
 	</head>
-	<body class="flex flex-col w-full selection:bg-yellow-600">
+	<body class="flex flex-col w-full selection:bg-yellow-600 p-12">
 		<div class="w-[300px] flex justify-center m-auto mt-12">
 			<Header></Header>
 		</div>
@@ -38,21 +43,21 @@ const items: ImageComponent[] = [
 			<div class="flex flex-col sm:w-[1063px] w-full">
                     {items.map((item) => (
                             (item.position === Pos.RIGHT) ? 
-                            <div class="flex items-center self-left">
+                            <div class="flex sm:flex-row flex-col items-center self-left">
                             <img src={item.url} width={500} />
-                                <div class="h-full flex flex-col">
+                                <div class="h-full flex sm:flex-col flex-row">
                                    <div class="border-solid border border-white h-full w-0 self-center"></div>
-                                    <div class="p-5" style="writing-mode: vertical-lr;min-inline-size:fit-content;" >{item.text}</div>
+                                    <div class="p-5 sm:flipa">{item.text}</div>
                                     <div class="border-solid border border-white h-full w-0 self-center"></div>
                                 </div>
                             </div>
-                            <br>
-                            <br>
+                            <br >
+                            <br >
                                 :
-                            <div class="flex items-center self-end">
-                                <div class="w-[60px] h-full flex flex-col">
+                            <div class="flex sm:flex-row flex-col  items-center self-end ">
+                                <div class="sm:w-[60px] h-full flex sm:flex-col flex-row">
                                     <div class="border-solid border border-white h-full w-0 self-center"></div>
-                                    <div class="p-5 rotate-180" style="writing-mode: vertical-lr;min-inline-size:fit-content;">{item.text}</div>
+                                    <div class="p-5 sm:rotate-180 sm:flipb" >{item.text}</div>
                                     <div class="border-solid border border-white h-full w-0 self-center"></div>
                                 </div> 
                                 <img src={item.url} width={500}/>

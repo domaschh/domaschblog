@@ -5,25 +5,25 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import Card from '../components/Card.astro';
 
-const about_myself_title: string = "Hi, I'm Thomas, previous engineer at FireStart, where we developed a new cloud-first business process management suite. I also study Computer Science at TU Vienna and spend much of my free time learning about computers and the internet. I have experience in .NET Core, Angular, and Rust the last of which I am most passionate about."
+const about_myself_title: string = "Hi, I'm Thomas, previous Fullstack Engineer (FireStart), where we developed a new cloud-first business process management suite. I also study Computer Science at TU Vienna and spend much of my free time learning about computers, programming languages and more. I have experience in .NET Core, Angular, and Rust the last of which I am most passionate about."
 const about_myself_content: string = "A little bit about myself"
 
 const title_2: string = "Why am I doing this?"
 const title_3: string = "Appart from tech"
 
 const content_2: string = "Following peoples tech-joruney and learning at the same time is a thing I've always enjoyed. So I thought, \"Hey, why not share my journey?\". If you ever find my *future* posts interesting or helpful, feel free to contact me via Twitter, Email, or whatever and leave your feedback there! Always appreciate a second opinion."
-const content_3: string = "Well, at the moment, I have a big southeast Asia trip in front of me. Destinations: Bangkok, Phuket, Kho Phi Phi and Singapore. I try myself at photography, and all the pictures you see on the photos page are taken by me. And while I'm at it, how could I miss taking martial art classes while being in Thailand? "
+const content_3: string = "I'm a passionate powerlifter and try to travel as much as I can. I know pretty basic but hey at least it's something."
 const title_4: string = "Contact"
 
-const image_src: string = "/images/mainimage.jpeg"
+const image_src: string = "/images/mainimage.jpg"
 ---
-
+ 
 <!DOCTYPE html>
 <html lang="en-us">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body class="flex flex-col w-full selection:bg-yellow-600">
+	<body class="flex flex-col w-full selection:bg-yellow-600 p-12">
 		<div class="w-[300px] flex justify-center m-auto mt-12">
 			<Header></Header>
 		</div>
@@ -52,8 +52,8 @@ const image_src: string = "/images/mainimage.jpeg"
 
 				
 			</div>
-			<div class="flex drop-shadow-2xl">
-				<img src={image_src} class="w-full h-auto"/>
+			<div class="flex drop-shadow-2xl flex-col">
+				<img src={image_src} class="object-contain"/>
 			</div>
 		</main>
 	</body>
