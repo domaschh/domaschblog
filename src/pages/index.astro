@@ -6,13 +6,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import Card from '../components/Card.astro';
 
 const about_myself_content: string = "A little bit about myself"
-const about_myself_title: string = "Hi my name is Thomas and I'm a passionate about all things Tech.  I'm interested in compilers, language design, security etc. etc. For most of my projects I use rust simply because I fancy the language design a lot and it was the language that was most fun to learn."
+const about_myself_title: string = "Hi my name is Thomas and I'm a passionate about all things Tech.  I'm interested in compilers, language design, security etc. For most of my projects I use rust simply because I fancy the language a lot and it was the language that was most fun to learn. "
 
 const title_2: string = "Experience"
 const title_3: string = "Appart from tech"
 
 const content_2: string = "In my previous endeavour at FireStart I've built a business process management platform over the span of three years. So most of my professional experience is with .NET core, Angular and MongoDB. Typical Fullstack. If you wanna check it out you can find it at firestart.com."
-const content_3: string = "I'm a passionate powerlifter and try to travel as much as I can. Also all the pictures you see on this website are taken by me."
+const content_3: string = "Beyond my interests in tech, I'm also a big sports lover. I've been doing powerlifting for 7 years and also like to do BJJ or go hiking when I find the time. All the photos on this site are taken by me and capture some of my adventures around the world."
 const title_4: string = "Contact"
 
 const image_src: string = "/images/mainimage.jpg"
@@ -31,8 +31,6 @@ const image_src: string = "/images/mainimage.jpg"
 			<div class="flex sm:w-[500px] w-full mr-24 flex-col divide-y divide-solid divide-white-100">
 				<br>
 				<Card title={about_myself_content} content={about_myself_title}></Card>
-				<br>
-				<Card title={title_2} content={content_2}></Card>
 				<br>
 				<Card title={title_3} content={content_3}></Card>
 				<br>
