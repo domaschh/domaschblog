@@ -1,7 +1,8 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import '../styles/global.css';
 
 enum Pos {
     LEFT,
@@ -21,7 +22,6 @@ const items: ImageComponent[] = [
     {url: "/images/imgpage/img3.jpg", position: Pos.RIGHT ,text: "Vienna, 1070" },
     {url: "/images/imgpage/img6.jpg", position: Pos.LEFT ,text: "Amsterdam, rAAVE " },
     {url: "/images/imgpage/img7.jpg", position: Pos.RIGHT ,text: "Vienna, MQ" },];
-
 ---
 
 <style>
