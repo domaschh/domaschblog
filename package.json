@@ -15,6 +15,7 @@
     "@astrojs/sitemap": "^3.0.0",
     "@astrojs/tailwind": "^5.0.0",
     "@astrojs/vercel": "^1.0.1",
+    "@fontsource/cardo": "^5.0.8",
     "astro": "^3.0.12"
   }
 }

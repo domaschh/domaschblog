@@ -21,7 +21,6 @@ const posts = (await getCollection('blog')).sort(
 				gap: 2rem;
 				list-style-type: none;
 				margin: 0;
-				padding: 0;
 			}
 			ul li {
 				width: calc(50% - 1rem);
@@ -43,7 +42,6 @@ const posts = (await getCollection('blog')).sort(
 			}
 			ul li img {
 				margin-bottom: 0.5rem;
-				border-radius: 12px;
 			}
 			ul li a {
 				display: block;
@@ -56,13 +54,7 @@ const posts = (await getCollection('blog')).sort(
 				margin: 0;
 				color: ghostwhite;
 			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: yellow;
-			}
-			ul a:hover img {
-				box-shadow: yellow;
-			}
+
 			@media (max-width: 720px) {
 				ul {
 					gap: 0.5em;
@@ -86,16 +78,17 @@ const posts = (await getCollection('blog')).sort(
 	</div>
 		<main >
 			<section class="flex flex-col w-full selection:bg-yellow-600 p-12 items-center">
-				<ul class="w-[300px] sm:w-[1000px]" >
+				<ul class="w-[300px] sm:w-[800px]" >
 					{
-						posts.map((post) => (
+						posts.slice(0,2).map((post) => (
 							<li>
-								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
+								<a href={`/blog/${post.slug}/`} >
+									<img  width={720} height={360} src={post.data.heroImage} alt="" />
+									<div class="pt-4 items-center flex flex-col" >
+									<p class="border-solid border-white border-x-2 px-4"> {post.data.description}</p>
+
+									</div>
+
 								</a>
 							</li>
 						))

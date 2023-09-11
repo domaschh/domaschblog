@@ -7,11 +7,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-	font-family: 'Cardo';
-	src: url('fonts/Cardo.ttf');
-}
-
 :root {
 	--accent: #2337ff;
 	--dark-accent: yellow;
@@ -74,19 +69,14 @@ p {
 nav a {
 	margin-right: 10px;
 }
-textarea {
-	width: 100%;
-	font-size: 16px;
-}
-input {
-	font-size: 16px;
-}
+
 content {
 	line-height: 1.6;
 }
 table {
 	width: 100%;
 }
+
 img {
 	max-width: 100%;
 	height: auto;
