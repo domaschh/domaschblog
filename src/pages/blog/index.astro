@@ -55,6 +55,7 @@ const posts = (await getCollection('blog')).sort(
 				color: ghostwhite;
 			}
 
+
 			@media (max-width: 720px) {
 				ul {
 					gap: 0.5em;
@@ -78,17 +79,18 @@ const posts = (await getCollection('blog')).sort(
 	</div>
 		<main >
 			<section class="flex flex-col w-full selection:bg-yellow-600 p-12 items-center">
-				<ul class="w-[300px] sm:w-[800px]" >
+				<ul class="w-[300px] sm:w-[700px]" >
 					{
-						posts.slice(0,2).map((post) => (
+						posts.slice(0,4).map((post) => (
 							<li>
-								<a href={`/blog/${post.slug}/`} >
-									<img  width={720} height={360} src={post.data.heroImage} alt="" />
-									<div class="pt-4 items-center flex flex-col" >
-									<p class="border-solid border-white border-x-2 px-4"> {post.data.description}</p>
-
+								<a href={`/blog/${post.slug}/`} class="border-solid border-b-2 border-white pb-3 sm:border-none">
+									<!--<img class="" width={720} height={360} src={post.data.heroImage} alt="" />-->
+									<div class=" items-center flex flex-col" >
+									<p style="font-family: 'Helvetica'; font-size: 12px"> {post.data.pubDate.getFullYear()}</p>
+										<h1 class="">{post.data.title}</h1>
+									<p class=" px-4 text-yellow-500/60 hover:text-yellow-500/100" style="font-family: 'Helvetica'"> {post.data.description}</p>
+									<p style="font-family: 'Helvetica'; font-size: 12px"> {post.data.tag}</p>
 									</div>
-
 								</a>
 							</li>
 						))
