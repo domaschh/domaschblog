@@ -7,6 +7,25 @@
 @tailwind components;
 @tailwind utilities;
 
+
+html.dark {
+	background-color: #000000;
+	color: #fff;
+}
+html p {
+	color: black;
+}
+html.dark p {
+	color: rgb(243 244 246 / 500);
+}
+
+html {
+	background-color: white;
+}
+
+.dark .nav-links a {
+	color: #fff;
+}
 :root {
 	--accent: #2337ff;
 	--dark-accent: yellow;
@@ -23,11 +42,9 @@
 body {
 	padding: 15px;
 	text-align: left;
-	background-color: rgb(0, 0, 0);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	line-height: 1.5;
-	color: rgb(255, 255, 255);
 }
 h1,
 h2,
@@ -37,9 +54,31 @@ h5,
 h6,
 strong,
 b {
+	color: rgb(0, 0, 0);
+	font-family: Helvetica, sans-serif;
+}
+
+
+
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6,
+html.dark strong,
+html.dark b {
 	color: rgb(255, 255, 255);
 	font-family: Helvetica, sans-serif;
 }
+
+html.dark h1 {
+	color: #EAB31CFF;
+	font-family: Helvetica, sans-serif;
+}
+h1 {
+	color: #754c1c;
+}
+
 div {
 	font-family: 'Cardo', Courier, monospace;
 }
@@ -80,10 +119,6 @@ table {
 img {
 	max-width: 100%;
 	height: auto;
-}
-code {
-	padding: 2px 5px;
-	background-color: rgba(234, 179, 8, 0.35);
 }
 pre {
 	border-radius: 10px;

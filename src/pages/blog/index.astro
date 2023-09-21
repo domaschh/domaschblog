@@ -56,6 +56,23 @@ const posts = (await getCollection('blog')).sort(
 			}
 
 
+			html.dark p {
+				color: rgba(234, 179, 8, 0.7);
+			}
+
+			html.dark a:hover p {
+				color: rgba(234, 179, 28, 1);
+
+			}
+
+			p {
+				color: #754c1c;
+			}
+
+			a:hover p  {
+					color: #ce7e20;
+			}
+
 			@media (max-width: 720px) {
 				ul {
 					gap: 0.5em;
@@ -87,8 +104,8 @@ const posts = (await getCollection('blog')).sort(
 									<!--<img class="" width={720} height={360} src={post.data.heroImage} alt="" />-->
 									<div class=" items-center flex flex-col" >
 									<p style="font-family: 'Helvetica'; font-size: 12px"> {post.data.pubDate.getFullYear()}</p>
-										<h1 class="">{post.data.title}</h1>
-									<p class=" px-4 text-yellow-500/60 hover:text-yellow-500/100" style="font-family: 'Helvetica'"> {post.data.description}</p>
+										<h2>{post.data.title}</h2>
+									<p class=" px-4 " style="font-family: 'Helvetica'"> {post.data.description}</p>
 									<p style="font-family: 'Helvetica'; font-size: 12px"> {post.data.tag}</p>
 									</div>
 								</a>

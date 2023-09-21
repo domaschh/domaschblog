@@ -1,9 +1,10 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+import ThemeIcon from "./ThemeIcon.astro";
 ---
 
 <header>
-	<nav class="internal-links">
+	<nav class="internal-links flex items-center">
 		<HeaderLink href="/">~</HeaderLink>
 		<HeaderLink >/</HeaderLink>
 		<HeaderLink href="/blog">Blog</HeaderLink>
@@ -13,6 +14,8 @@ import HeaderLink from './HeaderLink.astro';
 		<HeaderLink href="https://twitter.com/thedomasch" target="_blank">Twitter</HeaderLink>
 		<HeaderLink >/</HeaderLink>
 		<HeaderLink href="https://github.com/domaschh" target="_blank">GitHub</HeaderLink>
+		<HeaderLink >/</HeaderLink>
+		<ThemeIcon></ThemeIcon>
 	</nav>
 </header>
 <style>

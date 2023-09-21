@@ -17,5 +17,8 @@
     "@astrojs/vercel": "^1.0.1",
     "@fontsource/cardo": "^5.0.8",
     "astro": "^3.0.12"
+  },
+  "devDependencies": {
+    "postcss-nesting": "^12.0.1"
   }
 }
