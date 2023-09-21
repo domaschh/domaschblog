@@ -28,6 +28,15 @@ const items: ImageComponent[] = [
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
+	<style>
+		html.dark .burd {
+			border: 1px solid white;
+
+		}
+		.burd {
+			border: 1px solid black;
+		}
+	</style>
 	<body class="flex flex-col w-full selection:bg-yellow-600 p-12">
 		<div class="w-[300px] flex justify-center m-auto mt-10">
 			<Header></Header>
@@ -39,9 +48,9 @@ const items: ImageComponent[] = [
                             <div class="flex sm:flex-row flex-col items-center self-left">
                             <img src={item.url} width={500} />
                                 <div class="h-full flex sm:flex-col flex-row">
-                                   <div class="border-solid border border-white h-full w-0 self-center"></div>
+                                   <div class="burd h-full w-0 self-center"></div>
                                     <div class="p-5 sm:flipa">{item.text}</div>
-                                    <div class="border-solid border border-white h-full w-0 self-center"></div>
+                                    <div class=" burd h-full w-0 self-center"></div>
                                 </div>
                             </div>
                             <br >
@@ -49,9 +58,9 @@ const items: ImageComponent[] = [
                                 :
                             <div class="flex sm:flex-row flex-col  items-center self-end ">
                                 <div class="sm:w-[60px] h-full flex sm:flex-col flex-row">
-                                    <div class="border-solid border border-white h-full w-0 self-center"></div>
+                                    <div class="burd h-full w-0 self-center"></div>
                                     <div class="p-5 sm:rotate-180 sm:flipb" >{item.text}</div>
-                                    <div class="border-solid border border-white h-full w-0 self-center"></div>
+                                    <div class="burd h-full w-0 self-center"></div>
                                 </div> 
                                 <img src={item.url} width={500}/>
                             </div> 
