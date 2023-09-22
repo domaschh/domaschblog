@@ -16,11 +16,11 @@ html p {
 	color: black;
 }
 html.dark p {
-	color: rgb(243 244 246 / 500);
+	color: rgb(196, 196, 196);
 }
 
 html {
-	background-color: white;
+	background-color: rgba(241, 241, 241, 0.58);
 }
 
 .dark .nav-links a {
@@ -52,6 +52,7 @@ h3,
 h4,
 h5,
 h6,
+p,
 strong,
 b {
 	color: rgb(0, 0, 0);
@@ -79,12 +80,6 @@ h1 {
 	color: #754c1c;
 }
 
-div {
-	font-family: 'Cardo', Courier, monospace;
-}
-li {
-	font-family: 'Cardo', Courier, monospace;
-}
 a {
 	color: #ffffff;
 }
@@ -100,10 +95,7 @@ a {
 }
 }
 p {
-	font-family: 'Cardo';
-	font-weight: lighter;
 	line-height: 1.9em;
-	color: #fff;
 }
 nav a {
 	margin-right: 10px;
