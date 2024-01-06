@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import '@fontsource/cardo';
+import { type CollectionEntry, getCollection } from 'astro:content';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -22,10 +23,8 @@ const { title, description, pubDate, updatedDate, heroImage, tag } = Astro.props
 		}
 
 		 h1 {
-			 font-size: 40px!important;
+			 font-size: 60px!important;
 			 font-weight: bold!important;
-			 padding-bottom: 5px;
-			 padding-top: 5px;
 		 }
 		 h2 {
 			 font-size: 30px!important;
@@ -51,10 +50,10 @@ const { title, description, pubDate, updatedDate, heroImage, tag } = Astro.props
 			font-family: Helvetica;
 		}
 		 mark {
-			 background-color: rgba(234, 179, 8, 0.50);
 			 padding: 2px;
 			 border-radius: 2px;
 		 }
+
 		.hero-image {
 			width: 100%;
 		}
@@ -79,6 +78,7 @@ const { title, description, pubDate, updatedDate, heroImage, tag } = Astro.props
 			font-size: 50px;
 			margin: 0 0 0.5em 0;
 		}
+
 		.date {
 			margin-bottom: 0.5em;
 		}
@@ -88,17 +88,14 @@ const { title, description, pubDate, updatedDate, heroImage, tag } = Astro.props
 	</style>
 </head>
 
-<body class="flex items-center flex-col w-full selection:bg-yellow-600 p-12">
+<body class="flex items-center flex-col w-full">
 <div class="w-[300px] flex justify-center m-auto mt-10">
 	<Header></Header>
 </div>
 <main>
-	<article>
-		<div class="hero-image">
-			{heroImage && <img width={1000}  src={heroImage} alt="" />}
-		</div>
+	<article class="h-full overflow-auto">
 		<div class="prose">
-			<div class="title">
+			<div class="title mb-12">
 				<div class="date">
 					<FormattedDate date={pubDate} />
 					{
@@ -109,8 +106,7 @@ const { title, description, pubDate, updatedDate, heroImage, tag } = Astro.props
 						)
 					}
 				</div>
-				<h1>{title}</h1>
-				<hr />
+				<h1 style="text-transform: uppercase; font-weight: bold">{title}</h1>
 			</div>
 			<slot />
 		</div>

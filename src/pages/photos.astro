@@ -2,7 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import '../styles/global.css';
+import '../styles/global.scss';
 
 enum Pos {
     LEFT,
@@ -37,7 +37,7 @@ const items: ImageComponent[] = [
 			border: 1px solid black;
 		}
 	</style>
-	<body class="flex flex-col w-full selection:bg-yellow-600 p-12">
+	<body class="flex flex-col w-full">
 		<div class="w-[300px] flex justify-center m-auto mt-10">
 			<Header></Header>
 		</div>

@@ -5,15 +5,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Card from '../components/Card.astro';
 import '@fontsource/cardo';
 
-const about_myself_content: string = "A little bit about myself"
-const about_myself_title: string = "Hi my name is Thomas and I'm a passionate about all things Tech.  I'm interested in compilers, language design, security etc. For most of my projects I use rust simply because I fancy the language a lot and it was the language that was most fun to learn. "
+const about_myself_content: string = "Resselbande"
+const about_myself_title: string = "Servus an alle die das hier lesen. Hier findet ihr  eine Sammlung an (hoffentlich) interessanten Sachen bezueglich Programmiersprachen und Computer Science ueber die" +
+	" ich im Laufe meiner letzten Zeit als Entwickler gestossen bin, erklaert (wie soll's auch anders sein) im Wiener Scharm."
 
 const title_2: string = "Experience"
-const title_3: string = "Appart from tech"
+const title_3: string = "Ausserhalb von tech"
 
-const content_2: string = "In my previous endeavour at FireStart I've built a business process management platform over the span of three years. So most of my professional experience is with .NET core, Angular and MongoDB. Typical Fullstack. If you wanna check it out you can find it at firestart.com."
-const content_3: string = "Beyond my interests in tech, I'm also a big sports lover. I've been doing powerlifting for 7 years and also like to do BJJ or go hiking when I find the time. All the photos on this site are taken by me and capture some of my adventures around the world."
-const title_4: string = "Contact"
+const content_2: string = ""
+const content_3: string = "Alle Bilder die ihr hier findet sind von mir und zeigen einen kleinen Ausschnitt aus meinem Leben. "
+const title_4: string = "Kontakt"
 
 const image_src: string = "/images/mainimage.jpg"
 ---
@@ -22,25 +23,25 @@ const image_src: string = "/images/mainimage.jpg"
 <html lang="en-us">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+		</style>
 	</head>
 
-	<body class="flex flex-col w-full selection:bg-yellow-600 p-12">
+	<body class="flex flex-col w-full">
 		<div class="w-[300px] flex justify-center m-auto mt-10">
 			<Header></Header>
 		</div>
 		<main class="flex sm:flex-row m-auto sm:mt-12 mt-0 flex-col-reverse h-full justify-self-center">
-			<div class="flex sm:w-[500px] w-full mr-24 flex-col  divide-col">
+			<div class="flex sm:w-[500px] w-full mr-24 flex-col  divide-y divide-solid">
 				<br>
 				<Card title={about_myself_content} content={about_myself_title}></Card>
-				<br>
 				<Card title={title_3} content={content_3}></Card>
-				<br>
 				<div class="pb-6">
 					<h1 class="uppercase py-3 font-bold" style="font-size: 11px;">{title_4}</h1>
 					<p class="  sm:pl-24 pl-0" style="font-size: 14px;">
 						E-mail: magesthomas@gmail.com
 					</p>
-					<p class="font-cardo sm:pl-24 pl-0" style="font-size: 14px;">
+					<p class=" sm:pl-24 pl-0" style="font-size: 14px;">
 						LinkedIn: <a href="https://www.linkedin.com/in/thomas-mages-680b12172/">Thomas Mages</a>
 					</p>
 				</div>
