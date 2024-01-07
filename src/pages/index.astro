@@ -27,11 +27,11 @@ const image_src: string = "/images/mainimage.jpg"
 		</style>
 	</head>
 
-	<body class="flex flex-col w-full">
+	<body class="flex flex-col md:w-full w-fit px-5">
 		<div class="w-[300px] flex justify-center m-auto mt-10">
 			<Header></Header>
 		</div>
-		<main class="flex sm:flex-row m-auto sm:mt-12 mt-0 flex-col-reverse h-full justify-self-center">
+		<main class="flex sm:flex-row m-auto sm:mt-0 mt-0 flex-col-reverse h-full justify-self-center">
 			<div class="flex sm:w-[500px] w-full mr-24 flex-col  divide-y divide-solid">
 				<br>
 				<Card title={about_myself_content} content={about_myself_title}></Card>

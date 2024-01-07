@@ -10,7 +10,7 @@ $light-background: rgb(255, 255, 255);
 
 $light-font: #000000;
 $dark-font-primary: #ffd500;
-$dark-font: rgb(255, 255, 255);
+$dark-font: #EDEDED;
 $dark-border: rgba(255, 255, 255, 0.51);
 $dark-background: rgb(0, 0, 0);
 
@@ -34,6 +34,7 @@ html hr {
   border: none!important;
 }
 html {
+  width: 100%;
   background-color: $light-background;
 }
 
