@@ -86,7 +86,7 @@ Note that this bind operator can also be expressed in Python but using it withou
 # Motivation
 In the case of the original discussion about switching out TypeScript for JavaScript [^1lot of people argue that the static typing TypeScript provided was too valuable to let go of. Examples from the change list like:
 
-```js
+```js title="line-markers.js" del={1-2} ins={3-4} {6}
   //Typescript
 - function buildFormData(formElement: HTMLFormElement, submitter?: HTMLElement): FormData {
   //JavaScript

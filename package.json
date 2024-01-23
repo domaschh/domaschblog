@@ -9,7 +9,6 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-
   "dependencies": {
     "@astrojs/mdx": "^1.0.3",
     "@astrojs/rss": "^3.0.0",
@@ -18,6 +17,7 @@
     "@astrojs/vercel": "^1.0.1",
     "@fontsource/cardo": "^5.0.8",
     "astro": "^3.0.12",
+    "astro-expressive-code": "^0.32.2",
     "astro-toc": "^0.1.3",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
