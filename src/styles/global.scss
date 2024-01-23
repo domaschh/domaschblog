@@ -129,6 +129,20 @@ html.dark a {
   color: $dark-font;
 }
 
+.prose {
+  p {
+    code {
+      color: #BF3441;
+    }
+  }
+  ul,ol {
+    padding-left: 20px;
+  }
+  li {
+      list-style-type: decimal;;
+  }
+}
+
 @layer components {
 
   .flipb {
@@ -182,18 +196,17 @@ html.dark pre {
   }
 }
 
-blockquote {
-}
 
 pre > code {
   all: unset;
 }
 
 blockquote {
-  border: 1px solid #999;
+  border-left: 1px solid #999;
   color: #222;
   padding: 2px 0px 2px 20px;
-  margin: 0px;
+  margin-top: 10px!important;
+  margin-bottom: 10px!important;
   font-style: italic;
 }
 

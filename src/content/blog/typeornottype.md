@@ -64,7 +64,9 @@ Here one can freely assign both a number and a string to myvar without the progr
 
 ## Static typing
 
-The process of statically type-checking a program on the other hand means performing the analysis during compile time instead of runtime and prohibiting faulty programs from even starting. The example from above would fail to compile and run if I hadn't made myvar a subtype of iterator#footnote[Subtyping describes the relationship between multiple types where one can be freely exchanged for the other. Because String can be thought of as an iterator of characters it can therefore also be used as both a String and iterator].  
+The process of statically type-checking a program on the other hand means performing the analysis during compile time instead of runtime and prohibiting faulty programs from even starting. The example from above would fail to compile and run if I hadn't made myvar a subtype of iterator.
+> Subtyping describes the relationship between multiple types where one can be freely exchanged for the other. Because String can be thought of as an iterator of characters it can therefore also be used where generic iterators are expected
+
 Often but not always the term strongly typed goes hand in hand with statically typed language.
 Without the help of type inference an automatic type detection of variables based on the composition of expressions that already have a well-defined type it is the job of the programmer to specify the correct type. In cases where the programmer isn't well acquainted with the exact rules of the language, this can pose a real challenge as the code must strictly conform to the exact set of rules expected by the compiler. Having to spell out the exact type definitions can lead to extreme cases like this where the actual thing the code tries to convey is much simpler than the verbose syntax that one has to read.[^15]
 
@@ -79,18 +81,18 @@ impl<A> Monad for Option<A> {
     }
 }
 ``` 
-{The bind operator together with 'return' are functions that define the Monad and are important operators, especially in functional programming}
+> The bind operator together with 'return' are functions that define the Monad and are important operators, especially in functional programming
 
 Note that this bind operator can also be expressed in Python but using it without the guidance of the compiler is much more error-prone if not understood correctly.
 
 # Motivation
 In the case of the original discussion about switching out TypeScript for JavaScript [^1lot of people argue that the static typing TypeScript provided was too valuable to let go of. Examples from the change list like:
 
-```js title="line-markers.js" del={1-2} ins={3-4} {6}
+```js title="src/core/drive/form_submission.js" del={1-2} ins={3-4} {6}
   //Typescript
-- function buildFormData(formElement: HTMLFormElement, submitter?: HTMLElement): FormData {
+- function buildFormData(formElement: HTMLFormElement, submitter?: HTMLElement): FormData {...}
   //JavaScript
-+ function buildFormData(formElement, submitter) {
++ function buildFormData(formElement, submitter) {...}
 ``` 
 [^1] [^14]
 show that it is easy to lose important semantics when doing refactorings like these. In the case of ```ts submitter?: HTMLElement```It is clear to the user of this function that this parameter is optional (indicated by the ? operator after the name). This information is completely lost in the JavaScript version and forces the user to take a look inside the function internals instead of just at its API. So what are the reasons for choosing one over the other?
@@ -110,7 +112,7 @@ Image from "Microsoft: 70 percent of all security bugs are memory safety issues"
 In 1965 Tony Hoare who invented Hoare Logic worked on the type system of the programming language ALOGL or rather its handling of references to be more precise. According to him "he couldn't resist the temptation to put in a null reference, simply because it was so easy to implement"[^8]. The big problem with null is that it behaves like an "invisible element" that is part of the set of each type. Not that it is completely invisible and people don't know about it but rather that it is ignored by the type system at compile time leading to countless runtime errors simply because it is so easy to forget a null check. 
 One Solution is to incorporate static code analysis tools like Infer[^10] but over the years people have realized that it would also be beneficial to incorporate the "value of nothing" into the type system in a more visible way. A different approach than the hidden null like in Python, Java, javascript, etc. is to wrap the return values of operations that can fail in another type called Option (in Rust) or Maybe (in Haskell).
 
-Even Java incorperated it's own form of Option in the form of ```Java Class Optional<T>```, be it with a less ergonomic feel than in other languages.
+> Even Java incorperated it's own form of Option in the form of ```Java Class Optional<T>```, be it with a less ergonomic feel than in other languages.
 
 ```rust 
 pub enum Option<T> {
@@ -128,7 +130,7 @@ fn print_username(user: &User)  {
 }
 ```
 Here get_user_by_id doesn't return the User itself but the wrapped version. If the user now wants to use the return value of this function he or she is forced to handle both cases because a function that expects a User won't accept 
-```rust Option<User>```.
+``` rust Option<User>```.
 
 ```rust
 let my_user: Option<User> = get_user_by_id(1);
@@ -145,8 +147,10 @@ if let Some(actual_user) = my_user { //Pattern match where real user
 
 Another class of issues that is notoriously difficult and haunts many programmers is the one of concurrency issues. In languages like C pointers/references
 to a variable can freely be shared among threads without any real restrictions. The ensuring of correct synchronization is completely up to the programmer and needs a lot of expertise and careful handling to get right. In more modern languages this issue is again tackled through the type system.
-Rust introduces the notion of shared and exclusive references to objects with **&** and **&mut**[^16]. As only reading and no modifications are possible through shared references and reading can't introduce faulty program states they implement the Copy trait[^17] which makes them easily shareable between threads. ```rust &mut``` on the other hand cannot be copied or cloned as it is strictly forbidden to have 2 exclusive references to an object at the same time. If the programmer now wants to modify the value from 2 separate threads he or she is forced to again use a different type ```rust Arc<Mutex<T>>``` that forces them to handle synchronization. ```rust Arc<T>``` stands for Atomically reference counted pointer and lets the user share references to objects between threads. ```rust Mutex<T>``` on the other hand forces the user to acquire a lock before accessing the data inside. The value received by the lock is of type ```rust MutexGuard<'a, T: ?Sized + 'a>``` and called scoped lock. It is responsible for making sure there is always only one Thread accessing the value and automatically removing the lock when going out of scope. It does so by using a pattern called RAII (Resource acquisition is initialization) which was first introduced by C++ and makes sure that when creating a variable the memory for it is automatically allocated and deallocated when going out of scope.
-As one can see, modern type systems can offer substantial guidance and solutions for prominent problems. The class of use after free bugs mentioned in #link("Figure 1") would not occur in a memory model like Rust under the restriction that no unsafe is used#footnote[As 100% safety is not possible in programming some internal libraries need to use unsafe code internally but are completely safe to use through their API design. e.g. Doubly linked list].  However, this often comes at the cost of increased code verbosity, which some argue is too complex for effective use. [^9]
+Rust introduces the notion of shared and exclusive references to objects with ```&```and ```&mut```[^16]. As only reading and no modifications are possible through shared references and reading can't introduce faulty program states they implement the Copy trait[^17] which makes them easily shareable between threads. ```&mut``` on the other hand cannot be copied or cloned as it is strictly forbidden to have 2 exclusive references to an object at the same time. If the programmer now wants to modify the value from 2 separate threads he or she is forced to again use a different type ```Arc<Mutex<T>>``` that forces them to handle synchronization. ```Arc<T>``` stands for Atomically reference counted pointer and lets the user share references to objects between threads. ```Mutex<T>``` on the other hand forces the user to acquire a lock before accessing the data inside. The value received by the lock is of type ```MutexGuard<'a, T: ?Sized + 'a>``` and called scoped lock. It is responsible for making sure there is always only one Thread accessing the value and automatically removing the lock when going out of scope. It does so by using a pattern called RAII (Resource acquisition is initialization) which was first introduced by C++ and makes sure that when creating a variable the memory for it is automatically allocated and deallocated when going out of scope.
+As one can see, modern type systems can offer substantial guidance and solutions for prominent problems. The class of use after free bugs mentioned in the Security paragraph would not occur in a memory model like Rust under the restriction that no unsafe is used.
+> As 100% safety is not possible in programming some internal libraries need to use unsafe code internally but are completely safe to use through their API design. e.g. Doubly linked list
+However, this often comes at the cost of increased code verbosity, which some argue is too complex for effective use. [^9]
 
 ###  Guidance by standards
 
