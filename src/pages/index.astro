@@ -16,7 +16,7 @@ const content_2: string = ""
 const content_3: string = "Alle Bilder die ihr hier findet sind von mir und zeigen einen kleinen Ausschnitt aus meinem Leben. "
 const title_4: string = "Kontakt"
 
-const image_src: string = "/images/mainimage.jpg"
+const image_src: string = "/images/mainimage.png"
 ---
  
 <!DOCTYPE html>
@@ -37,7 +37,7 @@ const image_src: string = "/images/mainimage.jpg"
 				<Card title={about_myself_content} content={about_myself_title}></Card>
 				<Card title={title_3} content={content_3}></Card>
 				<div class="pb-6">
-					<h1 class="uppercase py-3 font-bold" style="font-size: 11px;">{title_4}</h1>
+					<h1 class="uppercase py-3 font-bold underline" style="font-size: 11px;">{title_4}</h1>
 					<p class="  sm:pl-24 pl-0" style="font-size: 14px;">
 						E-mail: magesthomas@gmail.com
 					</p>
@@ -49,7 +49,7 @@ const image_src: string = "/images/mainimage.jpg"
 
 				
 			</div>
-			<div class="flex drop-shadow-2xl flex-col">
+			<div class="flex  flex-col">
 				<br>
 				<img src={image_src} width="800px" class="object-contain"/>
 			</div>
