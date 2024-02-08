@@ -27,12 +27,12 @@ const image_src: string = "/images/mainimage.png"
 		</style>
 	</head>
 
-	<body class="flex flex-col md:w-full w-fit px-5">
-		<div class="w-[300px] flex justify-center m-auto mt-10">
+	<body class="flex flex-col md:w-full content-center w-fit px-5">
+		<div class="w-[600px] flex justify-center m-auto mt-10">
 			<Header></Header>
 		</div>
-		<main class="flex sm:flex-row m-auto sm:mt-0 mt-0 flex-col-reverse h-full justify-self-center">
-			<div class="flex sm:w-[500px] w-full mr-24 flex-col  divide-y divide-solid">
+		<main class="flex gap-10 sm:flex-row sm:w-2/3 w-full m-auto sm:mt-0 mt-0 flex-col-reverse items-center sm:items-start h-full justify-self-center">
+			<div class="flex sm:w-[500px] sm:w-1/2 flex-col  divide-y divide-solid">
 				<br>
 				<Card title={about_myself_content} content={about_myself_title}></Card>
 				<Card title={title_3} content={content_3}></Card>
@@ -45,11 +45,8 @@ const image_src: string = "/images/mainimage.png"
 						LinkedIn: <a href="https://www.linkedin.com/in/thomas-mages-680b12172/">Thomas Mages</a>
 					</p>
 				</div>
-				
-
-				
 			</div>
-			<div class="flex  flex-col">
+			<div class="flex sm:w-1/2 flex-col">
 				<br>
 				<img src={image_src} width="800px" class="object-contain"/>
 			</div>

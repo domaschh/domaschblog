@@ -12,10 +12,10 @@ $light-font: #000000;
 $dark-font-primary: #ffd500;
 $dark-font: #EDEDED;
 $dark-border: rgba(255, 255, 255, 0.51);
-$dark-background: rgb(0, 0, 0);
+$dark-background: linear-gradient(109.6deg, rgb(13, 13, 16) 11.2%, rgb(14, 14, 14) 51.2%, rgb(0, 0, 0) 98.6%);
 
 html.dark {
-  background-color: $dark-background;
+  background: $dark-background;
   color: #fff8d9;
 }
 
@@ -127,6 +127,16 @@ time {
 }
 html.dark a {
   color: $dark-font;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.example {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .prose {

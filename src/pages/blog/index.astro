@@ -92,12 +92,12 @@ const posts = (await getCollection('blog')).sort(
 		</style>
 	</head>
 	<body class="flex flex-col w-full">
-	<div class="w-[300px] flex justify-center m-auto mt-10">
+	<div class="w-[600px] flex justify-center m-auto mt-10">
 		<Header></Header>
 	</div>
 		<main >
 			<section class="flex flex-col w-full  p-12 items-center">
-				<ul class="w-[300px] sm:w-[700px]" >
+				<ul class="w-[600px] sm:w-[700px]" >
 					{
 						posts.slice(0,10).map((post) => (
 							<li>
