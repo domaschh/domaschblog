@@ -7,7 +7,9 @@ $light-background: rgb(255, 255, 255);
 @tailwind components;
 @tailwind components;
 @tailwind utilities;
-
+footer {
+  font-family: Inter, sans-serif;
+}
 $light-font: #000000;
 $dark-font-primary: #ffd500;
 $dark-font: #EDEDED;
