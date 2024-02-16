@@ -1,121 +1,136 @@
 ---
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
+import {SITE_TITLE, SITE_DESCRIPTION} from '../../consts';
+import {getCollection} from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
 const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: ghostwhite;
-			}
+<head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
+    <style>
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            list-style-type: none;
+            margin: 0;
+        }
+
+        ul li {
+            width: calc(50% - 1rem);
+        }
+
+        ul li * {
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        ul li:first-child {
+            width: 100%;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        ul li:first-child img {
+            width: 100%;
+        }
+
+        ul li:first-child .title {
+            font-size: 2.369rem;
+        }
+
+        ul li img {
+            margin-bottom: 0.5rem;
+        }
+
+        ul li a {
+            display: block;
+        }
+
+        .title {
+            margin: 0;
+            line-height: 1;
+        }
+
+        .date {
+            margin: 0;
+            color: ghostwhite;
+        }
 
 
-			html.dark p {
-			}
+        html.dark p {
+        }
 
-			html.dark a:hover p {
-				color: rgba(234, 179, 28, 1);
-			}
+        html.dark a:hover p {
+            color: rgba(234, 179, 28, 1);
+        }
 
-			p {
-				color: #754c1c;
-			}
-			$dark-font-primary: #ff0000;
+        p {
+            color: #754c1c;
+        }
 
-			a:hover p  {
-				color: #ff0000;
-			}
-			a:hover {
-			}
+        $dark-font-primary: #ff0000;
 
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body class="flex flex-col w-full">
-	<div class="w-[300px] flex justify-center m-auto mt-10">
-		<Header></Header>
-	</div>
-		<main >
-			<section class="flex flex-col w-full  p-12 items-center">
-				<ul class="w-[300px] sm:w-[700px]" >
-					{
-						posts.slice(0,10).map((post) => (
-							<li>
-								<a href={`/blog/${post.slug}/`} class="border-solid border-b-2 border-white pb-3 sm:border-none">
-									<!--<img class="" width={720} height={360} src={post.data.heroImage} alt="" />-->
-									<div class=" items-center flex flex-col" >
-										<h2 style="font-size: 30px; text-transform: uppercase; font-weight: bold">{post.data.title}</h2>
-										<p > {post.data.pubDate.getFullYear()}</p>
+        a:hover p {
+            color: #ff0000;
+        }
 
-									<p class=" px-4 " style="font-family: 'Helvetica'"> {post.data.description}</p>
-									<p > {post.data.tag}</p>
-									</div>
-								</a>
-							</li>
-						))
-						}
-				</ul>
-			</section>
-		</main>
-	</body>
+        a:hover {
+        }
+
+        @media (max-width: 720px) {
+            ul {
+                gap: 0.5em;
+            }
+
+            ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            ul li:first-child {
+                margin-bottom: 0;
+            }
+
+            ul li:first-child .title {
+                font-size: 1.563em;
+            }
+        }
+    </style>
+</head>
+<body class="flex sm:h-[100vh] h-full w-full flex-col md:w-full content-center ">
+<div class="flex justify-center w-full border-b border-black">
+    <Header></Header>
+</div>
+<main class="h-full">
+    <section class="flex flex-col w-full items-center h-full p-10">
+        <ul class="w-[300px] sm:w-[1000px]  p-2 h-full">
+            {
+                posts.slice(0, 10).map((post) => (
+                        <li>
+                            <a href={`/blog/${post.slug}/`}
+                               class="border-solid border-b-2 border-white pb-3 sm:border-none">
+                                <!--<img class="" width={720} height={360} src={post.data.heroImage} alt="" />-->
+                                <div class=" items-center flex flex-col">
+                                    <h2 style="font-size: 40px; text-transform: uppercase; font-weight: bold">{post.data.title}</h2>
+                                    <p> {post.data.pubDate.getFullYear()}</p>
+
+                                    <p class=" px-4 " style="font-family: 'Helvetica'"> {post.data.description}</p>
+                                    <p> {post.data.tag}</p>
+                                </div>
+                            </a>
+                        </li>
+                ))
+            }
+        </ul>
+    </section>
+</main>
+</body>
 </html>

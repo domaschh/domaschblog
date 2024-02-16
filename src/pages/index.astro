@@ -1,58 +1,106 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import {SITE_TITLE, SITE_DESCRIPTION} from '../consts';
 import Card from '../components/Card.astro';
 import '@fontsource/cardo';
 import Footer from "../components/Footer.astro";
+import {getCollection} from 'astro:content';
 
+const posts = (await getCollection('blog')).sort(
+    (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
 const about_myself_content: string = "Servus"
 const about_myself_title: string = "An alle die das hier lesen. Hier findet ihr  eine Sammlung an (hoffentlich) interessanten Sachen bezueglich Programmiersprachen und Computer Science ueber die" +
-	" ich im Laufe meiner letzten Zeit als Entwickler gestossen bin, erklaert (wie soll's auch anders sein) im Wiener Charme. "
+    " ich im Laufe meiner letzten Zeit als Entwickler gestossen bin, erklaert (wie soll's auch anders sein) im Wiener Charme. "
 
 const title_2: string = "Ueber mich"
 const title_3: string = "Ausserhalb von tech"
 
-const content_2: string = "Ich beschaeftige mich seit ich 14 bin mit Computern und Programmieren und hab in den letzten 6 Jahren einiges an Erfahrung in mehreren Projekten als Entwickler und Architekt und Tutor gesammelt. Gleichzeitig studiere ich an der TU Wien Logic and Computation."
+const content_2: string = "Ich beschaeftige mich seit ich 14 bin mit Computern und Programmieren und hab in den letzten Jahren einiges an Erfahrung als sowohl Entwickler, Architekt und TA gesammelt. Ausserdem studiere ich an der TU Wien Logic and Computation."
 const content_3: string = "Alle Bilder die ihr hier findet sind von mir und zeigen einen kleinen Ausschnitt aus meinem Leben. "
 const title_4: string = "Kontakt"
 
 const image_src: string = "/images/mainimage.png"
 ---
- 
+
 <!DOCTYPE html>
 <html lang="en-us">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-		</style>
-	</head>
+<head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
+    <style>
+    </style>
+</head>
 
-	<body class="flex sm:h-[100vh] h-full flex-col md:w-full content-center w-fit px-5">
-		<div class="w-[300px] flex justify-center m-auto mt-10">
-			<Header></Header>
-		</div>
-		<main class="flex gap-10 sm:flex-row sm:w-2/3 w-full m-auto sm:mt-0 mt-0 flex-col-reverse items-center sm:items-start h-full justify-self-center">
-			<div class="flex sm:w-[500px] sm:w-1/2 flex-col  divide-y divide-solid">
-				<br>
-				<Card title={about_myself_content} content={about_myself_title}></Card>
-				<Card title={title_2} content={content_2}></Card>
-				<Card title={title_3} content={content_3}></Card>
-				<div class="pb-6">
-					<h1 class="uppercase py-3 font-bold underline" style="font-size: 11px;">{title_4}</h1>
-					<p class="hover:underline sm:pl-12 pl-0" style="font-size: 14px;">
-						<a href="mailto:magesthomas@gmail.com" class="hover:underline" target="_blank">magesthomas@gmail.com</a>
-					</p>
-					<p class=" sm:pl-12 pl-0" style="font-size: 14px;">
-						<a href="/public/ThomasMages_CV.pdf" class="hover:underline" target="_blank">Résumé</a>
-					</p>
-				</div>
-			</div>
-			<div class="flex sm:w-1/2 flex-col">
-				<br>
-				<img src={image_src} width="800px" class="object-contain"/>
-			</div>
-		</main>
-	</body>
-	<Footer></Footer>
+<body class="flex sm:h-[100vh] h-full w-full flex-col md:w-full content-center sm:px-0">
+<div class="flex justify-center w-full m-auto  border-b border-black">
+    <Header></Header>
+</div>
+<main class="flex  sm:flex-row flex-col w-full m-auto sm:mt-0 mt-0  sm:items-start h-full justify-self-center">
+    <div class="flex sm:w-1/3 w-full flex-col border-r border-black border-l h-full">
+        <h1 class="text-right uppercase sm:text-[6rem] text-[5rem] font-bold">Tho<span class="bg-black text-white">mas  Mag</span>es</h1>
+        <Card title={about_myself_content} content={about_myself_title}></Card>
+        <Card title={title_2} content={content_2}></Card>
+        <Card title={title_3} content={content_3}></Card>
+        <Footer></Footer>
+    </div>
+    <div class="w-full flex flex-col">
+        <div class="flex w-full sm:flex-row flex-col border-b border-black ">
+            <div class="p-10 border-r border-black">
+                <img src={image_src}  class="object-contain"/>
+            </div>
+            <div class="w-fit p-10 sm:max-h-[800px] sm:border-none border-t border-black">
+                <h1 class="text-[3rem] font-bold underline">BRISANT</h1>
+                <div class="h-full overflow-scroll">
+                    <section class="flex flex-col w-full overflow-scroll sm:p-10 p-0 items-center">
+                        <ul class="w-[300px] sm:w-[700px] sm:overflow-scroll">
+                            {
+                                posts.slice(0, 10).map((post) => (
+                                        <li class="mb-10">
+                                            <a href={`/blog/${post.slug}/`}
+                                               class="border-solid border-b-2 border-white pb-10 sm:border-none hover:underline">
+                                                <!--<img class="" width={720} height={360} src={post.data.heroImage} alt="" />-->
+                                                <div class=" items-center flex flex-col">
+                                                    <h2 class="text-[30px] font-bold uppercase ">{post.data.title}</h2>
+                                                    <p> {post.data.pubDate.getFullYear()}</p>
+
+                                                    <p class=" px-4 "
+                                                       style="font-family: 'Helvetica'"> {post.data.description}</p>
+                                                    <p> {post.data.tag}</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                ))
+                            }
+                        </ul>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+        <div class="pb-6 w-full flex sm:flex-row flex-col p-10 gap-10">
+            <div>
+                <h1 class="uppercase py-3 font-bold underline text-[2rem]">{title_4}</h1>
+                <p class="hover:underline ">
+                    <a href="mailto:magesthomas@gmail.com" class="hover:underline"
+                       target="_blank">magesthomas@gmail.com</a>
+                </p>
+            </div>
+            <div>
+                <h1 class="uppercase py-3 font-bold underline text-[2rem]">About</h1>
+                <p class="">
+                    <a href="/public/ThomasMages_CV.pdf" class="hover:underline " target="_blank">Résumé</a>
+                </p>
+            </div>
+            <div class="sm:ml-10 ml-0">
+                <h1 class="uppercase py-3 font-bold underline text-[2rem]">Projects</h1>
+                <p class="">
+                    <a href="/public/ThomasMages_CV.pdf" class="hover:underline" target="_blank">GITHUB</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</main>
+</body>
 </html>
