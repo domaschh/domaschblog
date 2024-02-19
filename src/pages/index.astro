@@ -32,15 +32,16 @@ const image_src: string = "/images/mainimage.png"
     </style>
 </head>
 
-<body class="flex sm:h-[100vh] overflow-scroll h-full w-full flex-col md:w-full content-center sm:px-0">
+<body class="flex sm:h-[100vh] sm:overflow-hidden overflow-scroll h-full w-full flex-col md:w-full content-center sm:px-0">
 <div class="flex justify-center w-full m-auto  border-b border-black">
     <Header></Header>
 </div>
-<main class="flex  sm:flex-row flex-col w-full m-auto sm:mt-0 mt-0  sm:items-start h-full justify-self-center">
-    <div class="flex sm:w-1/3 w-full flex-col border-l h-full">
-        <h1 class="text-right border-r border-black uppercase sm:text-[6rem] text-[5rem] font-bold">Tho<span class="bg-black text-white">mas  Mag</span>es
+<main class="flex sm:flex-row flex-col w-full m-auto sm:mt-0 mt-0  sm:items-start h-full justify-self-center">
+    <div class="flex sm:w-1/3 w-full flex-col sm:overflow-scroll border-l h-full">
+        <h1 class="text-right border-black uppercase sm:text-[6rem] text-[5rem] font-bold">Tho<span
+                class="bg-black text-white">mas  Mag</span>es
         </h1>
-        <div class="h-full">
+        <div class="h-full flex flex-col">
             <Card title={about_myself_content} content={about_myself_title}></Card>
             <Card title={title_2} content={content_2}></Card>
             <Card title={title_3} content={content_3}></Card>
@@ -48,9 +49,9 @@ const image_src: string = "/images/mainimage.png"
         </div>
 
     </div>
-    <div class="w-full flex flex-col">
+    <div class="w-full h-full flex flex-col">
         <div class="flex w-full sm:flex-row flex-col border-b border-black ">
-            <div class="p-10 border-r w-full border-black content-center">
+            <div class="p-10 border-r w-full border-black border-l content-center">
                 <img src={image_src} class="object-contain"/>
             </div>
             <div class="md:w-3/5 sm:w-1/3 w-full  p-10 sm:max-h-[500px] sm:border-none border-t border-black">
@@ -75,37 +76,37 @@ const image_src: string = "/images/mainimage.png"
                                             </a>
                                         </li>
                                 ))
-                                }
-                                </ul>
-                                </section>
-                                </div>
-                                </div>
-                                </div>
-                                <div class="pb-6 w-full flex sm:flex-row flex-col p-10 gap-10">
-                                    <div>
-                                        <h1 class="uppercase py-3 font-bold underline text-[2rem]">{title_4}</h1>
-                                        <p class="hover:underline ">
-                                            <a href="mailto:magesthomas@gmail.com" class="hover:underline"
-                                               target="_blank">magesthomas@gmail.com</a>
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <h1 class="uppercase py-3 font-bold underline text-[2rem]">About</h1>
-                                        <p class="">
-                                            <a href="/public/ThomasMages_CV.pdf" class="hover:underline "
-                                               target="_blank">Résumé</a>
-                                        </p>
-                                    </div>
-                                    <div class="sm:ml-10 ml-0">
-                                        <h1 class="uppercase py-3 font-bold underline text-[2rem]">Projects</h1>
-                                        <p class="">
-                                            <a href="/public/ThomasMages_CV.pdf" class="hover:underline"
-                                               target="_blank">GITHUB</a>
-                                        </p>
-                                    </div>
+                            }
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <div class="pb-6 w-full border-black border-l h-full flex sm:flex-row flex-col p-10 gap-10">
+            <div>
+                <h1 class="uppercase py-3 font-bold underline text-[2rem]">{title_4}</h1>
+                <p class="hover:underline ">
+                    <a href="mailto:magesthomas@gmail.com" class="hover:underline"
+                       target="_blank">magesthomas@gmail.com</a>
+                </p>
+            </div>
+            <div>
+                <h1 class="uppercase py-3 font-bold underline text-[2rem]">About</h1>
+                <p class="">
+                    <a href="/public/ThomasMages_CV.pdf" class="hover:underline "
+                       target="_blank">Résumé</a>
+                </p>
+            </div>
+            <div class="sm:ml-10 ml-0">
+                <h1 class="uppercase py-3 font-bold underline text-[2rem]">Projects</h1>
+                <p class="">
+                    <a href="/public/ThomasMages_CV.pdf" class="hover:underline"
+                       target="_blank">GITHUB</a>
+                </p>
+            </div>
 
-                                </div>
-                                </div>
-                                </main>
-                                </body>
-                                </html>
+        </div>
+    </div>
+</main>
+</body>
+</html>
