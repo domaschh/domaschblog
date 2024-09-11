@@ -1,27 +1,32 @@
-/*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
-$light-background: rgb(255, 255, 255);
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+  $light-background: rgb(255, 255, 255);
 @tailwind components;
 @tailwind components;
 @tailwind utilities;
 footer {
-  font-family: Inter, sans-serif;
 }
 $light-font: #000000;
 
-$dark-font-primary: #ffd500;
+$dark-font-primary: #fff0b5;
 $dark-font: #EDEDED;
 $dark-border: rgba(255, 255, 255, 0.51);
-$dark-background: black;
+$dark-background: rgb(0, 0, 0);
 
 html.dark {
   background: $dark-background;
-  color: #fff8d9;
+  color: $dark-font-primary  ;
 }
-
+html.dark div {
+  border-color: 10px solid white;
+}
 html p {
   color: black;
 }
@@ -62,7 +67,6 @@ p,
 strong,
 b {
   color: rgb(0, 0, 0);
-  font-family: Inter, sans-serif;
 }
 
 
@@ -74,12 +78,10 @@ html.dark h6,
 html.dark strong,
 html.dark b {
   color: rgb(255, 255, 255);
-  font-family: Inter, sans-serif;
 }
 
 html.dark h1 {
   color: $dark-font;
-  font-family: Inter, sans-serif;
 }
 
 h1 {
@@ -102,7 +104,6 @@ a {
 .font-toc {
   text-decoration:underline ;
   margin-left: 20px;
-  font-family: Inter, sans-serif !important;
   list-style-type: decimal;
   .font-toc-h2 {
     list-style-type: circle;
@@ -119,7 +120,6 @@ html.dark .toc-wrapper {
   //right: 20%;
 }
 time {
-  font-family: Inter, sans-serif;
 }
 .toc-wrapper {
   padding-bottom: 20px;
@@ -225,7 +225,6 @@ blockquote {
 
 
 * {
-  font-family: Inter, sans-serif;
 }
 
 ::selection {

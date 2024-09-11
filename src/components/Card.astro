@@ -7,8 +7,8 @@ export interface Props {
 const { title, content } = Astro.props as Props;
 ---
 
-<div class="p-6 border-black border-t">
-    <h1 class="uppercase py-3 font-bold  text-[2rem] underline" >{title}</h1>
+<div class="p-6 h-full flex items-center flex-col border-black border-t">
+    <span class="uppercase self-start py-3 font-bold w-auto text-[2rem] underline" >{title}</span>
     <p class="sm:pl-12 pl-0 text-md">
        {content}
     </p>

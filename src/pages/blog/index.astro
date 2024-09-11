@@ -4,6 +4,9 @@ import Header from '../../components/Header.astro';
 import {SITE_TITLE, SITE_DESCRIPTION} from '../../consts';
 import {getCollection} from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import Footer from "../../components/Footer.astro";
+import Card from "../../components/Card.astro";
+import HeaderLink from "../../components/HeaderLink.astro";
 
 const posts = (await getCollection('blog')).sort(
     (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -32,11 +35,6 @@ const posts = (await getCollection('blog')).sort(
             transition: 0.2s ease;
         }
 
-        ul li:first-child {
-            width: 100%;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
 
         ul li:first-child img {
             width: 100%;
@@ -105,32 +103,44 @@ const posts = (await getCollection('blog')).sort(
         }
     </style>
 </head>
-<body class="flex sm:h-[100vh] h-full w-full flex-col md:w-full content-center ">
-<div class="flex justify-center w-full border-b border-black">
-    <Header></Header>
-</div>
-<main class="h-full">
-    <section class="flex flex-col w-full items-center h-full p-10">
-        <ul class="w-[300px] sm:w-[1000px]  p-2 h-full">
-            {
-                posts.slice(0, 10).map((post) => (
-                        <li>
-                            <a href={`/blog/${post.slug}/`}
-                               class="border-solid border-b-2 border-white pb-3 sm:border-none">
-                                <!--<img class="" width={720} height={360} src={post.data.heroImage} alt="" />-->
-                                <div class=" items-center flex flex-col">
-                                    <h2 style="font-size: 40px; text-transform: uppercase; font-weight: bold">{post.data.title}</h2>
-                                    <p> {post.data.pubDate.getFullYear()}</p>
+<body class="flex sm:h-[100vh] sm:overflow-hidden overflow-scroll h-full w-full flex-col md:w-full content-center sm:px-0">
+<main class="flex sm:flex-row w-full m-auto sm:mt-0 mt-0  justify-center sm:items-start h-full justify-self-center">
+    <div class="flex sm:w-1/3 self-center w-full items-center flex-col">
+        <Header></Header>
+        <div class="h-full mt-10 min-h-[590px]  flex flex-col border-black border-x border-y w-full">
+            <section class="flex flex-col w-full items-center aspect-square p-10">
+                <ul class=" p-2 h-full flex flex-col w-full items-center ">
+                    {
+                        posts.slice(0, 10).map((post) => (
+                                <li>
+                                    <a href={`/blog/${post.slug}/`}
+                                       class="border-solid border-b-2 border-white pb-3 sm:border-none">
+                                        <div class=" items-center flex flex-col">
+                                            <h2 class="text-10xl font-bold">{post.data.title}</h2>
+                                            <p> {post.data.pubDate.getFullYear()}</p>
 
-                                    <p class=" px-4 " style="font-family: 'Helvetica'"> {post.data.description}</p>
-                                    <p> {post.data.tag}</p>
-                                </div>
-                            </a>
-                        </li>
-                ))
-            }
-        </ul>
-    </section>
+                                            <p class=" px-4 " style="font-family: 'Helvetica'"> {post.data.description}</p>
+                                            <p> {post.data.tag}</p>
+                                        </div>
+                                    </a>
+                                </li>
+                        ))
+                    }
+                </ul>
+        </div>
+        <div class="sm:w-[80%] w-full border justify-center internal-links  mt-10 font-jetbrains flex md:text-[1rem] border-l border-t border-r border-b border-black text-sm p-4 font-extrabold items-center" >
+            <HeaderLink href="/">~</HeaderLink>
+            <HeaderLink >/</HeaderLink>
+            <HeaderLink >about</HeaderLink>
+            <HeaderLink >/</HeaderLink>
+            <HeaderLink href="/blog">Resume</HeaderLink>
+            <HeaderLink >/</HeaderLink>
+            <HeaderLink href="/blog">LinkedIn</HeaderLink>
+            <HeaderLink >/</HeaderLink>
+            <a href="mailto:magesthomas@gmail.com" class="hover:underline"
+               target="_blank">email</a>
+        </div>
+    </div>
 </main>
 </body>
 </html>
