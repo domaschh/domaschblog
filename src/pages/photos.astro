@@ -36,6 +36,9 @@ const items: ImageComponent[] = [
 		.burd {
 			border: 1px solid black;
 		}
+		html.dark img {
+			box-shadow: 0 0 200px 10px rgba(255, 240, 181, 0.2);
+		}
 	</style>
 	<body class="flex flex-col w-full">
 	<div class="flex justify-center w-full m-auto ">
@@ -45,8 +48,8 @@ const items: ImageComponent[] = [
 			<div class="flex flex-col sm:w-[1063px] w-full md:p-0 p-5">
                     {items.map((item) => (
                             (item.position === Pos.RIGHT) ? 
-                            <div class="flex sm:flex-row flex-col items-center self-left">
-                            <img class="drop-shadow-2xl" src={item.url} width={500} />
+                            <div class="flex  sm:flex-row flex-col items-center self-left">
+                            <img class="shadow-[0_35px_60px_-15px_rgba(0,0,0,0.93)]" src={item.url} width={500} />
                                 <div class="h-full flex sm:flex-col flex-row">
                                    <div class="burd h-full w-0 self-center"></div>
                                     <div class="p-5 sm:flipa">{item.text}</div>
@@ -63,7 +66,7 @@ const items: ImageComponent[] = [
                                     <div class="p-5 sm:rotate-180 sm:flipb" >{item.text}</div>
                                     <div class="burd h-full w-0 self-center"></div>
                                 </div> 
-                                <img  class="drop-shadow-2xl" src={item.url} width={500}/>
+                                <img  class="shadow-[0_35px_60px_-15px_rgba(0,0,0,0.93)]" src={item.url} width={500}/>
                             </div> 
                             <br>
                             <br>
