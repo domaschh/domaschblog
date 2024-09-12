@@ -2,10 +2,20 @@
 import HeaderLink from './HeaderLink.astro';
 import ThemeIcon from "./ThemeIcon.astro";
 ---
-
+<head>
+	<style>
+		html.dark span {
+			background: #fff0b5;
+			color: black;
+		}
+		html.dark nav {
+			border-color: rgba(142, 142, 142, 0.45);
+		}
+	</style>
+</head>
 <header>
-	<nav class="internal-links  mt-10 font-jetbrains flex md:text-[2rem] border-l border-t border-r border-b border-black text-sm p-4 font-extrabold items-center">
-		<h1 class="text-right self-center w-[10%]  uppercase sm:text-[1rem] text-[0.5rem] font-bold mr-5">Tho<span
+	<nav class="internal-links  sm:mt-10 sm:mb-0 mb-2 mt-2 font-jetbrains flex md:text-[2rem] border-l border-t border-r border-b border-black text-sm p-4 font-extrabold items-center">
+		<h1 class="text-right self-center w-[20%]  uppercase sm:text-sm text-[0.5rem] font-bold mr-5">Tho<span
 			class="bg-black text-white">mas  Mag</span>es
 		</h1>
 		<div class="w-full flex justify-center">

@@ -6,10 +6,20 @@ export interface Props {
 
 const { title, content } = Astro.props as Props;
 ---
-
-<div class="p-6 h-full flex items-center flex-col border-black border-t">
-    <span class="uppercase self-start py-3 font-bold w-auto text-[2rem] underline" >{title}</span>
-    <p class="sm:pl-12 pl-0 text-md">
+<head>
+    <style>
+        html.dark span {
+            background: #fff0b5;
+            color: black;
+        }
+        html.dark div {
+            border-color: rgba(142, 142, 142, 0.45);
+        }
+    </style>
+</head>
+<div class="p-6 flex h-full items-center flex-col border-black border-t justify-center">
+    <span class="uppercase box-decor bg-black text-white py-0 px-1 self-start font-bold w-auto text-[1rem]" >{title}</span>
+    <p class="sm:pl-12 pl-0 text-sm">
        {content}
     </p>
 </div>
