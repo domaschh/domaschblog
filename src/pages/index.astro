@@ -54,17 +54,27 @@ const image_src: string = "/images/mainimage.png"
             <Card title={title_3} content={content_3}></Card>
             <Footer></Footer>
         </div>
-        <div class="sm:w-[80%] w-full min-h-1/3 border justify-center internal-links  mt-10 font-jetbrains flex md:text-[1rem] border-l border-t border-r border-b border-black text-sm p-4 font-extrabold items-center" >
-            <HeaderLink href="/">~</HeaderLink>
+        <div class="sm:w-[80%] flex flex-col w-full min-h-1/3 border justify-center internal-links  mt-10 font-jetbrains flex md:text-[1rem] border-l border-t border-r border-b border-black text-sm p-4 font-extrabold items-center" >
+            <div class="flex w-full">
+
+            <HeaderLink class="no-underline" href="/">~</HeaderLink>
             <HeaderLink >/</HeaderLink>
-            <HeaderLink >about</HeaderLink>
-            <HeaderLink >/</HeaderLink>
-            <HeaderLink href="/blog">Resume</HeaderLink>
-            <HeaderLink >/</HeaderLink>
-            <HeaderLink href="/blog">LinkedIn</HeaderLink>
-            <HeaderLink >/</HeaderLink>
-            <a href="mailto:magesthomas@gmail.com" class="  text-sm decoration-0"
+            <HeaderLink>about</HeaderLink>
+            <HeaderLink class="mr-2" >$</HeaderLink>
+            <HeaderLink >ls </HeaderLink>
+
+            </div>
+
+            <div class="flex w-full">
+
+            <HeaderLink class="mr-2 hover:underline font-extrabold" target="_blank" href="ThomasMages_CV.pdf">Resume</HeaderLink>
+            <HeaderLink class="mr-2 hover:underline" target="_blank" href="https://www.linkedin.com/in/thomas-mages-680b12172/">LinkedIn</HeaderLink>
+            <HeaderLink class="mr-2 hover:underline"  href="https://github.com/domaschh" target="_blank">GitHub</HeaderLink>
+            <a href="mailto:magesthomas@gmail.com" class="  hover:underline text-sm decoration-0"
                target="_blank">email</a>
+            </div>
+
+
         </div>
     </div>
 </main>
