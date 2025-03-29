@@ -185,13 +185,6 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
-"ownershipinrust.md": {
-	id: "ownershipinrust.md";
-  slug: "ownershipinrust";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".md"] };
 "typeornottype.md": {
 	id: "typeornottype.md";
   slug: "typeornottype";

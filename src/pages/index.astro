@@ -13,9 +13,10 @@ const posts = (await getCollection('blog')).sort(
     (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 const about_myself_content: string = "Servus"
-const about_myself_title: string = "An alle die das hier lesen. Hier findet ihr  eine Sammlung an (hoffentlich) interessanten Sachen bezueglich Programmiersprachen und Computer Science ueber die" +
-    " ich im Laufe meiner letzten Zeit als SE gestossen bin, erklaert (mit hoffentlich) einer Prise Wiener Charme. "
-
+const about_myself_title: string = "My main interests at the moment range from compilers and\n" +
+    "all things performance to software verification and different logics. I also do a lot of research about the intricacies of\n" +
+    "the Rust programming language in my free time and at uni. I'm currently pursing a Masters degree in " +
+    "Logic and Computation at TU Wien(Techical University of Vienna)"
 const title_2: string = "Ueber mich"
 const title_3: string = "Ausserhalb von tech"
 
@@ -46,15 +47,14 @@ const image_src: string = "/images/mainimage.png"
 
 <body class="flex sm:h-[100vh] overflow-scroll h-full w-full flex-col md:w-full content-center sm:px-0">
 <main class="flex sm:flex-row  w-full m-auto sm:mt-0 mt-0  justify-center sm:items-start h-full justify-self-center">
-    <div class="flex sm:w-1/3 h-full self-center w-full items-center flex-col">
-        <Header></Header>
-        <div class="sm:mt-10  flex flex-col border-black border-x border-b w-full aspect-square items-stretch justify-evenly">
-            <Card title={about_myself_content} content={about_myself_title}></Card>
-            <Card title={title_2} content={content_2}></Card>
-            <Card title={title_3} content={content_3}></Card>
-            <Footer></Footer>
+    <div class="flex sm:w-1/5 h-full self-center w-full items-center flex-col">
+        <div class="w-full">
+            <Header></Header>
         </div>
-        <div class="sm:w-[80%] flex flex-col w-full min-h-1/3 border justify-center internal-links  mt-10 font-jetbrains flex md:text-[1rem] border-l border-t border-r border-b border-black text-sm p-4 font-extrabold items-center" >
+        <div class="sm:mt-10  flex flex-col border-black border-x border-b w-full  items-stretch justify-evenly">
+            <Card title={about_myself_content} content={about_myself_title}></Card>
+        </div>
+        <div class="sm:w-[100%] flex flex-col  min-h-1/3 border justify-center internal-links  mt-10 font-jetbrains  md:text-[1rem] border-l border-t border-r border-b border-black text-sm p-4 font-extrabold items-center" >
             <div class="flex w-full">
 
             <HeaderLink class="no-underline" href="/">~</HeaderLink>
